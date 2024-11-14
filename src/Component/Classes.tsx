@@ -1,7 +1,61 @@
 import React, { useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { PiCaretUpDownFill } from "react-icons/pi";
 const Classes: React.FC = () => {
   const [Class, setclass] = useState<string>("");
+  interface Detail {
+    SR: number;
+    class: string;
+    section: string;
+    total_student: number;
+  }
+  const detail: Detail[] = [
+    {
+      SR: 1,
+      class: "10th",
+      section: "A",
+      total_student: 100,
+    },
+    {
+      SR: 1,
+      class: "10th",
+      section: "A",
+      total_student: 100,
+    },
+    {
+      SR: 1,
+      class: "10th",
+      section: "A",
+      total_student: 100,
+    },
+    {
+      SR: 1,
+      class: "10th",
+      section: "A",
+      total_student: 100,
+    },
+    {
+      SR: 1,
+      class: "10th",
+      section: "A",
+      total_student: 100,
+    },
+  ];
   return (
     <div className="w-[80%]  h-[100vh] bg-[#F6F5FA] relative left-[20%] top-14 p-2">
       <p className="text-[#4D515A] font-montserrat text-[14px] leading-3 py-2">
@@ -12,69 +66,61 @@ const Classes: React.FC = () => {
           {" "}
           Classes
         </h1>
-
-        <select
-          className="flex focus:outline-none justify-between h-[38px] p-[4px] border-[1px] border-[#D0D5DD] rounded-[8px] w-[280px] text-[16px]"
+        <Select
           value={Class}
-          onChange={(e) => {
-            setclass(e.target.value);
+          onValueChange={(value) => {
+            setclass(value);
           }}
         >
-          <option value="---" selected>
-            Select Class
-          </option>
-          <option value="option1">option 1</option>
-          <option value="option2">option 2</option>
-          <option value="option3">option 3</option>
-        </select>
+          <SelectTrigger className="w-[280px]">
+            <SelectValue placeholder="--" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="Class 10A">Class 10A</SelectItem>
+            <SelectItem value="Class 10B">Class 10B</SelectItem>
+            <SelectItem value="Class 9A">Class 9A</SelectItem>
+            <SelectItem value="Class 9B">Class 9B</SelectItem>
+            <SelectItem value="Class 8A">Class 8A</SelectItem>
+            <SelectItem value="Class 8B">Class 8B</SelectItem>
+            <SelectItem value="Class 7A">Class 7A</SelectItem>
+            <SelectItem value="Class 7B">Class 7B</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
-     <div className="bg-white w-[100%] pt-[14px] mt-3">
-     <div className="flex justify-between bg-[#F8FAFC] w-[100%] py-[8px] rounded-[5px] px-[34px] self-center">
-        <h2 className="text-[14px] font-[800] flex items-center gap-3">SR#<PiCaretUpDownFill /></h2>
-        <h2 className="text-[14px] font-[800] flex items-center gap-3">CLASS<PiCaretUpDownFill /></h2>
-        <h2 className="text-[14px] font-[800] flex items-center gap-3">SECTION<PiCaretUpDownFill /></h2>
-        <h2 className="text-[14px] font-[800] flex items-center gap-3">TOTAL STUDENT<PiCaretUpDownFill /></h2>
-      </div>
-      <div className="flex justify-between border-t-[1px] border-['#4D515A'] w-[100%] py-[8px] rounded-[5px] px-[34px] self-center">
-        <p >1</p>
-        <p  className="translate-x-[-50px]">9th</p>
-        <p className="translate-x-[-100px]">A</p>
-        <p className="translate-x-[-120px]">100</p>
-      </div>
-      <div className="flex justify-between border-t-[1px] border-['#4D515A'] w-[100%] py-[8px] rounded-[5px] px-[34px] self-center">
-        <p >1</p>
-        <p  className="translate-x-[-50px]">9th</p>
-        <p className="translate-x-[-100px]">A</p>
-        <p className="translate-x-[-120px]">100</p>
-      </div>
-      <div className="flex justify-between border-t-[1px] border-['#4D515A'] w-[100%] py-[8px] rounded-[5px] px-[34px] self-center">
-        <p >1</p>
-        <p  className="translate-x-[-50px]">9th</p>
-        <p className="translate-x-[-100px]">A</p>
-        <p className="translate-x-[-120px]">100</p>
-      </div>
-      <div className="flex justify-between border-t-[1px] border-['#4D515A'] w-[100%] py-[8px] rounded-[5px] px-[34px] self-center">
-        <p >1</p>
-        <p  className="translate-x-[-50px]">9th</p>
-        <p className="translate-x-[-100px]">A</p>
-        <p className="translate-x-[-120px]">100</p>
-      </div>
-      <div className="flex justify-between border-t-[1px] border-['#4D515A'] w-[100%] py-[8px] rounded-[5px] px-[34px] self-center">
-        <p >1</p>
-        <p  className="translate-x-[-50px]">9th</p>
-        <p className="translate-x-[-100px]">A</p>
-        <p className="translate-x-[-120px]">100</p>
-      </div>
-      <div className="flex justify-between border-t-[1px] border-['#4D515A'] w-[100%] py-[8px] rounded-[5px] px-[34px] self-center">
-        <p >1</p>
-        <p  className="translate-x-[-50px]">9th</p>
-        <p className="translate-x-[-100px]">A</p>
-        <p className="translate-x-[-120px]">100</p>
-      </div>
-      </div>
+      <Table className="bg-white mt-3">
+        <TableHeader>
+          <TableRow className="bg-[#F8FAFC]">
+          <TableHead className="font-montserrat font-bold text-black   ">
+             <p  className="flex items-center">SR#
+             <PiCaretUpDownFill/></p>  
+            </TableHead>
+            <TableHead className="font-montserrat font-bold text-black   ">
+             <p  className="flex items-center">CLASSES
+             <PiCaretUpDownFill/></p>  
+            </TableHead>
+            <TableHead className="font-montserrat font-bold text-black   ">
+             <p  className="flex items-center">SECTION
+             <PiCaretUpDownFill/></p>  
+            </TableHead>
 
-    
+            <TableHead className="font-montserrat font-bold text-black  ">
+             <p className="flex items-center">TOTAL STUDENT
+             <PiCaretUpDownFill /></p>  
+            </TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {detail.map((item) => (
+            <TableRow>
+              <TableCell className="font-medium py-4">{item.SR}</TableCell>
+              <TableCell>{item.class}</TableCell>
+              <TableCell>{item.section}</TableCell>
+              <TableCell>{item.total_student}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 };

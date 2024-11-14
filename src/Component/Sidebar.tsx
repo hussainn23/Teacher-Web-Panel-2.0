@@ -35,12 +35,12 @@ const Sidebar:React.FC = () => {
               }}>
               <li className='flex items-center gap-2.5'><PiUsersThree size={18} />Students</li>  {hover? < IoIosArrowDown size={18}  />:<IoIosArrowUp size={18}  /> }
               </summary>
-              <li className="mx-[3rem] my-[1rem] text-[14px] p-[5px] rounded-[7px] font-medium bg-white hover:bg-[rgb(205,200,200)]">
+             <Link to='/attendence'> <li className="mx-[3rem] my-[1rem] text-[14px] p-[5px] rounded-[7px] font-medium bg-white hover:bg-[#F3F6FA]">
                 Attendance
-                </li>
+                </li></Link> 
 
-                <li className="mx-[3rem] my-[1rem] text-[14px] p-[5px] rounded-[7px] font-medium bg-white hover:bg-[rgb(205,200,200)]">Result</li>
-                <li className="mx-[3rem] my-[1rem] text-[14px] p-[5px] rounded-[7px] font-medium bg-white hover:bg-[rgb(205,200,200)]">Report</li>
+                <li className="mx-[3rem] my-[1rem] text-[14px] p-[5px] rounded-[7px] font-medium bg-white hover:hover:bg-[#F3F6FA]">Result</li>
+                <li className="mx-[3rem] my-[1rem] text-[14px] p-[5px] rounded-[7px] font-medium bg-white hover:hover:bg-[#F3F6FA]">Report</li>
             </details>
 
            <Link to='/datesheet'><li className='flex items-center gap-2.5 rounded-[9px] font-montserrat p-[14px] text-[14px] font-medium duration-300 ease-in-out bg-white hover:bg-[#124FA0] text-black hover:text-white'>

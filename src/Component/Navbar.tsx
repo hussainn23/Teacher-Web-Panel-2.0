@@ -2,6 +2,19 @@ import React, { useState } from "react";
 import { IoIosNotifications } from "react-icons/io";
 import { IoSettings } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
+import { IoExitOutline } from "react-icons/io5";
+
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
 const Navbar:React.FC = () => {
   const [value,setvalue]=useState<string | number>('')
   return (
@@ -63,9 +76,29 @@ const Navbar:React.FC = () => {
       <IoSettings size={18}/>
       </div>
       <div className="flex items-center gap-2">
-         <img src='https://i.pinimg.com/474x/8d/62/f5/8d62f5e9a33ced9f615da03f989c9d11.jpg' width={'30px'} height={'10px'} className="rounded-[50%]"/>
+       
+       
+         <Dialog >
+      <DialogTrigger asChild>
+        <Button variant={"left"}><img src='https://i.pinimg.com/474x/8d/62/f5/8d62f5e9a33ced9f615da03f989c9d11.jpg' width={'30px'} height={'10px'} className="rounded-[50%]"/>
          <p className="text-[12px]">Erik Brown</p>
-         <IoIosArrowDown/>
+         <IoIosArrowDown/></Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader className="flex flex-col justify-center items-center">
+        <img src='https://i.pinimg.com/474x/8d/62/f5/8d62f5e9a33ced9f615da03f989c9d11.jpg' width={'90px'} height={'10px'} className="rounded-[50%]"/>
+          <DialogTitle>Erik Brown</DialogTitle>
+          <DialogDescription className="text-blue-600 cursor-pointer">
+           View/Edit Profile
+          </DialogDescription>
+        </DialogHeader>
+       
+        <DialogFooter className="border-t-[1px] py-2">
+          <Button className="w-[50%]" type="submit" variant={'outline'}>Login</Button>
+          <Button className="w-[50%]"type="submit" variant={'outline'}><IoExitOutline size={24} className="text-red-600"/>Logout</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
       </div>
       </div>
      
