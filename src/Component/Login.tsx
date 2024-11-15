@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.svg";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Label } from "../components/ui/label";
+import { Input } from "../components/ui/input";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { FiEye } from "react-icons/fi";
 import {
@@ -10,19 +10,21 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "../components/ui/card";
 import { useNavigate } from 'react-router-dom'
 interface LoginProps{
   setIsLoggedIn:(value:boolean)=>void
+  setuserName:(value:string)=>void
 }
-export const Login: React.FC<LoginProps> = ({setIsLoggedIn}) => {
-  const [email, setemail] = useState<string | number>("");
+export const Login: React.FC<LoginProps> = ({setIsLoggedIn,setuserName}) => {
+  const [email, setemail] = useState<string >("");
   const [password, setpass] = useState<string | number>("");
   const[Showpassword,setshow]=useState(false)
   const navigate=useNavigate()
   const handlelogin=()=>{
     if(email&&password){
       setIsLoggedIn(true)
+      setuserName(email)
       navigate('/dashboard')
      
     }
@@ -31,9 +33,9 @@ export const Login: React.FC<LoginProps> = ({setIsLoggedIn}) => {
     }
   }
   return (
-    <div className="flex items-center font-montserrat justify-center w-[100vw] h-[100vh] bg-[#1A55A5] relative overflow-hidden ">
+    <div className="flex items-center font-montserrat justify-center w-[100vw] h-[100vh] lg:bg-[#1A55A5] relative overflow-hidden sm:bg-white ">
       <svg
-        className="absolute top-[0] left-[0] z-0"
+        className="absolute top-[0] left-[0] z-0 "
         xmlns="http://www.w3.org/2000/svg"
         width="1303"
         height="770"
@@ -49,7 +51,7 @@ export const Login: React.FC<LoginProps> = ({setIsLoggedIn}) => {
           stroke-linejoin="round"
         />
       </svg>
-      <Card className="w-full sm:w-[100vw] sm:h-[100vh] lg:w-[556px] lg:h-[440px] z-20 px-[20px] py-[10px] flex flex-col relative gap-[40px]">
+      <Card className="w-full sm:h-[100vh] lg:w-[556px] lg:h-[440px] sm:w-[100vw] z-20 px-[20px] py-[10px] flex flex-col relative gap-[40px]">
         <CardHeader>
           <img src={Logo} className="w-[360px] h-[70px] m-auto" />
           <CardTitle className="text-[32px] font-[400] font-montserrat text-center">
@@ -62,21 +64,23 @@ export const Login: React.FC<LoginProps> = ({setIsLoggedIn}) => {
         <CardContent className="">
           <Label
             htmlFor="email"
-            className="text-[#28303e] font-[500]  text-[14px] text-left"
+            className="text-[#28303e] lg:relative font-[500]  text-[14px] text-left "
           >
             Email or Username
           </Label>
           <Input
+        
             placeholder="e.g.abc@gmail.com"
             type="text"
             value={email}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setemail(e.target.value);
+              
             }}
           />
           <Label
             htmlFor="password"
-            className="text-[#344054] font-[500]  text-[14px] text-left mt-1"
+            className="text-[#344054] font-[500]  text-[14px] text-left mt-1 "
           >
             Password
           </Label>
@@ -84,14 +88,15 @@ export const Login: React.FC<LoginProps> = ({setIsLoggedIn}) => {
             placeholder="******"
             type={Showpassword?'text':'password'}
             value={password}
+             
             onChange={(e) => {
               setpass(e.target.value);
             }}
           />
-           <p onClick={()=>{setshow(!Showpassword)}} className="absolute lg:right-24 lg:top-[78%] sm:top-[0%] sm:right-[60%]
-           cursor-pointer">{Showpassword? <FiEye />:<IoEyeOffOutline />}</p>
+           <p onClick={()=>{setshow(!Showpassword)}} className="absolute lg:right-24 lg:top-[78%] sm:top-[51.5%] sm:right-[20%]
+           cursor-pointer md:top-[53.5%] md:right-[]">{Showpassword? <FiEye />:<IoEyeOffOutline />}</p>
 
-          <Input type="submit" className="bg-[#1A55A5] cursor-pointer hover:bg-[#428bf8] text-white mt-6" onClick={handlelogin}></Input>
+          <Input type="submit" className="bg-[#1A55A5] cursor-pointer hover:bg-[#428bf8] text-white mt-6 md:mt-[5vh]" onClick={handlelogin}></Input>
         </CardContent>
       </Card>
     </div>

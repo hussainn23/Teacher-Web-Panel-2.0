@@ -4,7 +4,7 @@ import { IoSettings } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoExitOutline } from "react-icons/io5";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "../components/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -13,13 +13,15 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-
-const Navbar:React.FC = () => {
-  const [value,setvalue]=useState<string | number>('')
+} from "../components/ui/dialog"
+interface NavbarProps{
+  Username:string
+}
+const Navbar:React.FC <NavbarProps>= ({Username}) => {
+  const [value,setvalue]=useState<string>('')
   return (
     <div className="fixed top-0 bg-white z-10 flex w-[80%] px-[24px] py-[6px] left-[20%] items-center justify-between  ">
-      <p className="text-[#727983] font-medium font-montserrat text-[12px]">
+      <p className="text-[#727983] font-medium font-montserrat text-[12px] sm:hidden lg:block">
         School Management System V 1.0
       </p>
       <div className="flex items-center gap-4">
@@ -30,7 +32,7 @@ const Navbar:React.FC = () => {
           height="42"
           viewBox="0 0 53 52"
           fill="none"
-          className="relative bottom-[1px]"
+          className="relative bottom-[1px] sm:hidden lg:block"
         >
           <path
             fill-rule="evenodd"
@@ -45,7 +47,7 @@ const Navbar:React.FC = () => {
           height="24"
           viewBox="0 0 25 24"
           fill="none"
-          className="absolute top-2 left-2"
+          className="absolute top-2 left-2 sm:hidden lg:block"
         >
           <path
             d="M10.5 17C14.366 17 17.5 13.866 17.5 10C17.5 6.13401 14.366 3 10.5 3C6.63401 3 3.5 6.13401 3.5 10C3.5 13.866 6.63401 17 10.5 17Z"
@@ -66,28 +68,28 @@ const Navbar:React.FC = () => {
           type="text"
           placeholder="Search..."
           value={value}
-          className="w-[180px] relative text-[#CACEDC] text-[15px] px-2  focus:outline-none  h-[41px] border-r-[1.33px] border-[#1A55A5] rounded-r-[100px] border-t-[1.33px] border-b-[1.33px] top-[0.9px]"
+          className="w-[180px] relative text-[#CACEDC] text-[15px] px-2  focus:outline-none  h-[41px] border-r-[1.33px] border-[#1A55A5] rounded-r-[100px] border-t-[1.33px] border-b-[1.33px] top-[0.9px] sm:hidden lg:block"
           onChange={(e)=>{setvalue(e.target.value)}}
         />
        
       </div>
-      <p className="text-[#727983] text-[12px] font-montserrat font-[500]">Last Login:19:00:00 12/02/2024</p>
-      <div className="flex gap-3"><IoIosNotifications size={18} />
-      <IoSettings size={18}/>
+      <p className="text-[#727983] text-[12px] font-montserrat font-[500] lg:block sm:hidden">Last Login:19:00:00 12/02/2024</p>
+      <div className="flex gap-3"><IoIosNotifications size={18} className="hidden lg:block" />
+      <IoSettings size={18} className="hidden lg:block" />
       </div>
       <div className="flex items-center gap-2">
        
        
-         <Dialog >
+      <Dialog >
       <DialogTrigger asChild>
-        <Button variant={"left"}><img src='https://i.pinimg.com/474x/8d/62/f5/8d62f5e9a33ced9f615da03f989c9d11.jpg' width={'30px'} height={'10px'} className="rounded-[50%]"/>
-         <p className="text-[12px]">Erik Brown</p>
+        <Button variant={"left"}><img src='https://i.pinimg.com/474x/8d/62/f5/8d62f5e9a33ced9f615da03f989c9d11.jpg' width={'30px'} height={'10px'} className="rounded-[50%] sm:absolute sm:right-3 lg:relative"/>
+         <p className="text-[12px] sm:hidden lg:block">{Username}</p>
          <IoIosArrowDown/></Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader className="flex flex-col justify-center items-center">
         <img src='https://i.pinimg.com/474x/8d/62/f5/8d62f5e9a33ced9f615da03f989c9d11.jpg' width={'90px'} height={'10px'} className="rounded-[50%]"/>
-          <DialogTitle>Erik Brown</DialogTitle>
+          <DialogTitle>{Username}</DialogTitle>
           <DialogDescription className="text-blue-600 cursor-pointer">
            View/Edit Profile
           </DialogDescription>

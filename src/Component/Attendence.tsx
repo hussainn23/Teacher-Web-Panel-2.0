@@ -78,14 +78,14 @@ const Attendence:React.FC= () => {
   
   let navigate=useNavigate()
   return (
-    <div className="w-[80%]  h-[100vh] bg-[#F6F5FA] font-montserrat relative left-[20%] top-14 p-2 overflow-hidden">
-    <p className="text-[#4D515A]  text-[14px] leading-3 py-2">
+    <div className="w-[100%]  bg-[#F6F5FA] font-montserrat relative sm:left-0 lg:left-[20%]  top-14 p-2 ">
+    <p className="text-[#4D515A]  lg:text-[14px] sm:text-[10px] leading-3 py-2">
       Dashboard {">"} Attendence {">"}
     </p>
-    <div className='flex justify-between w-[100%] '>
+    <div className='flex justify-between '>
     <div className="flex items-center gap-[12px] px-[2] ">
     <Button variant={'outline'} className='w-[44px]' onClick={() => navigate(-1)}><FaArrowLeft /></Button>
-      <h1 className="font-montserrat text-[22px] font-bold leading-6 ">
+      <h1 className="font-montserrat lg:text-[22px] sm:text-[14px] font-bold leading-6 ">
         {" "}
         Attendence 
       </h1>
@@ -100,27 +100,34 @@ const Attendence:React.FC= () => {
    
 
    <div className="bg-white w-[100%] pt-[14px] mt-3">
-    <div className='flex items-center w-[100%] py-[2px] px-[4px] justify-between text-[12px] gap-2'>
-    <p>Your Class:</p>
+    <div className='flex lg:flex-row sm:flex-col md:flex-row items-center w-[100%] py-[2px] px-[4px] gap-2 text-[12px] '>
+     <div className='flex items-center gap-1 lg:flex-row md:flex-col'>
+     <p>Select Your Class:</p>
   
-     <ClassPicker />
-  
+  <ClassPicker />
+     </div>
+   
+     <div className='flex items-center gap-1 lg:flex-row md:flex-col'>
      <p>Enter your Reg#</p>
      <Input type='text' placeholder='' className='w-[200px] h-[40px]' value={Reg} onChange={(e)=>{setReg(e.target.value)}}/>
-     <p>Enter your name</p>
-     <Input type='text' placeholder='' className='w-[200px]' value={name} onChange={(e)=>{setname(e.target.value)}}/>
+     </div>
+     <div className='flex items-center gap-1 lg:flex-row md:flex-col'>
+      <p>Enter your name</p>
+      <Input type='text' placeholder='' className='w-[200px]' value={name} onChange={(e)=>{setname(e.target.value)}}/>
+      </div>
+    
     </div>
-    <Table className="min-w-full table-auto">
+    <Table className=" table-auto lg:text-[14px] sm:text-[10px]">
   <TableHeader>
     <TableRow>
-      <TableHead className="font-montserrat font-bold text-black text-left px-4 py-2 min-w-[120px]">
+      <TableHead className="font-montserrat font-bold text-black text-left px-4 py-2 lg:w-[120px] sm:w-[100px]">
         STUDENT REG#
       </TableHead>
-      <TableHead className="font-montserrat font-bold text-black text-left px-4 py-2 min-w-[180px]">
+      <TableHead className="font-montserrat font-bold text-black text-left px-4 py-2 lg:w-[120px] sm:w-[70px] ">
         STUDENT NAME
       </TableHead>
      
-      <TableHead className="font-montserrat font-bold text-black text-left px-4 py-2 flex items-center min-w-[120px]">
+      <TableHead className="font-montserrat font-bold text-black text-left px-4 py-2 flex items-center lg:w-[120px] sm:text-[10px]">
    
         <MonthPicker />
       </TableHead>
@@ -146,8 +153,8 @@ const Attendence:React.FC= () => {
   <TableBody>
     {students.map((item, index) => (
       <TableRow key={index}>
-        <TableCell className="font-medium py-4 px-4 min-w-[180px]">{item.registration}</TableCell>
-        <TableCell className="font-medium py-4 px-4 min-w-[180px]">{item.name}</TableCell>
+        <TableCell className="font-medium py-4 px-4 lg:min-w-[180px]">{item.registration}</TableCell>
+        <TableCell className="font-medium py-4 px-4 lg:min-w-[180px]">{item.name}</TableCell>
 
       <TableCell className='flex gap-4'>
         {
@@ -179,7 +186,7 @@ const Attendence:React.FC= () => {
 
 
    </div>
-</div>
+    </div>
   )
 }
 

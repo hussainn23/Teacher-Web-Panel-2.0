@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "../components/ui/select";
 
 import {
   Table,
@@ -14,7 +14,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "../components/ui/table";
 import { PiCaretUpDownFill } from "react-icons/pi";
 const Classes: React.FC = () => {
   const [Class, setclass] = useState<string>("");
@@ -57,8 +57,8 @@ const Classes: React.FC = () => {
     },
   ];
   return (
-    <div className="w-[80%]  h-[100vh] bg-[#F6F5FA] relative left-[20%] top-14 p-2">
-      <p className="text-[#4D515A] font-montserrat text-[14px] leading-3 py-2">
+    <div className="w-[100%]    bg-[#F6F5FA] relative lg:text-[14px] sm:text-[10px] sm:left-0 lg:left-[20%]  top-14 p-2">
+      <p className="text-[#4D515A] font-montserrat  leading-3 py-2">
         Dashboard {">"} Classes {">"}
       </p>
       <div className="flex items-center gap-[12px] px-[2]">
@@ -88,7 +88,7 @@ const Classes: React.FC = () => {
         </Select>
       </div>
 
-      <Table className="bg-white mt-3">
+      <Table className="bg-white mt-3 lg:text-[14px] sm:text-[10px]  sm:mt-11">
         <TableHeader>
           <TableRow className="bg-[#F8FAFC]">
           <TableHead className="font-montserrat font-bold text-black   ">

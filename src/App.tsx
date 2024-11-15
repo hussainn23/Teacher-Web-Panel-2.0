@@ -7,16 +7,17 @@ import Classes from './Component/Classes';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { Login } from './Component/Login';
 import { Datesheet } from './Component/Datesheet';
+import Result from './Component/Result';
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+   const [Username,setuserName]=useState<string>('')
   return (
     <Router>
-      <div>
+      <div >
        
         {isLoggedIn && <Sidebar />}
-        {isLoggedIn && <Navbar />}
+        {isLoggedIn && <Navbar Username={Username} />}
         
         <Routes>
           <Route 
@@ -25,7 +26,7 @@ const App: React.FC = () => {
               isLoggedIn ? (
                 <Navigate to="/dashboard" replace /> // Redirect to dashboard if logged in
               ) : (
-                <Login setIsLoggedIn={setIsLoggedIn} />
+                <Login setIsLoggedIn={setIsLoggedIn} setuserName={setuserName} />
               )
             } 
           />
@@ -51,6 +52,7 @@ const App: React.FC = () => {
             path="/classes" 
             element={isLoggedIn ? <Classes /> : <Navigate to="/" replace />}
           />
+          <Route path='/result'  element={isLoggedIn ? <Result /> : <Navigate to="/" replace />}/>
         </Routes>
       </div>
     </Router>

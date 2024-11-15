@@ -8,7 +8,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "../components/ui/select";
 import {
   Table,
   TableBody,
@@ -17,7 +17,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "../components/ui/table"
 import Button from "../Buttons/Button";
 
 export const Datesheet: React.FC = () => {
@@ -75,12 +75,12 @@ export const Datesheet: React.FC = () => {
     },
   ]
   return (
-    <div className="w-[80%]  h-[1008px] bg-[#F6F5FA] relative left-[20%] top-14 p-2">
+    <div className="w-[100%]  bg-[#F6F5FA] relative sm:left-0 lg:left-[20%] top-14 p-2 ">
       <p className="text-[#4D515A] font-montserrat text-[14px] leading-3 py-2">
         Dashboard {">"} Datesheet {">"}
       </p>
-      <div className="flex items-center justify-between px-[2]">
-        <h1 className="font-montserrat text-[22px] font-bold leading-6 ">
+      <div className="flex items-center justify-between px-[2]  lg:w-[80%] sm:w-[100%]">
+        <h1 className="font-montserrat lg:text-[22px] sm:text-[17px] font-bold leading-6 ">
           {" "}
           Date Sheet
         </h1>
@@ -94,8 +94,8 @@ export const Datesheet: React.FC = () => {
           />
         </div>
       </div>
-      <div className="flex gap-4 bg-white w-[100%] p-2 rounded-[5px] mt-2">
-        <div>
+      <div className="flex lg:flex-row sm:flex-col gap-4 bg-white w-[100%] p-2 rounded-[5px] mt-2">
+        <div >
           <p className="text-[14px] flex items-center gap-1">
             Select Class <FaAsterisk className="text-red-600" size={9} />
           </p>
@@ -138,7 +138,7 @@ export const Datesheet: React.FC = () => {
           </Select>
         </div>
       </div>
-      <Table className="bg-white">
+      <Table className="bg-white lg:text-[14px] sm:text-[12px] w-[90vw] ">
   
   <TableHeader>
     <TableRow className="bg-[#FAF8FC]">
