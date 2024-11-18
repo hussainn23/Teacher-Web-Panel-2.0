@@ -8,6 +8,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { Login } from './Component/Login';
 import { Datesheet } from './Component/Datesheet';
 import Result from './Component/Result';
+import Timetable from './Component/Timetable';
+import NoticeBoard from './Component/NoticeBoard';
+import Report from './Component/Report';
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -53,6 +56,9 @@ const App: React.FC = () => {
             element={isLoggedIn ? <Classes /> : <Navigate to="/" replace />}
           />
           <Route path='/result'  element={isLoggedIn ? <Result /> : <Navigate to="/" replace />}/>
+          <Route path='/timetable'  element={isLoggedIn ? <Timetable /> : <Navigate to="/" replace />}/>
+          <Route path='/report'  element={isLoggedIn ? <Report /> : <Navigate to="/" replace />}/>
+          <Route path='/noticeboard'  element={isLoggedIn ? <NoticeBoard /> : <Navigate to="/" replace />}/>
         </Routes>
       </div>
     </Router>
