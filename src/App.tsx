@@ -11,6 +11,7 @@ import Result from './Component/Result';
 import Timetable from './Component/Timetable';
 import NoticeBoard from './Component/NoticeBoard';
 import Report from './Component/Report';
+import StudentReport from './Component/StudentReport';
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,7 +28,7 @@ const App: React.FC = () => {
             path="/" 
             element={
               isLoggedIn ? (
-                <Navigate to="/dashboard" replace /> // Redirect to dashboard if logged in
+                <Navigate to="/dashboard" replace />
               ) : (
                 <Login setIsLoggedIn={setIsLoggedIn} setuserName={setuserName} />
               )
@@ -58,6 +59,11 @@ const App: React.FC = () => {
           <Route path='/result'  element={isLoggedIn ? <Result /> : <Navigate to="/" replace />}/>
           <Route path='/timetable'  element={isLoggedIn ? <Timetable /> : <Navigate to="/" replace />}/>
           <Route path='/report'  element={isLoggedIn ? <Report /> : <Navigate to="/" replace />}/>
+          <Route
+  path="/studentreport/:name"
+  element={isLoggedIn ? <StudentReport /> : <Navigate to="/" replace />}
+/>
+
           <Route path='/noticeboard'  element={isLoggedIn ? <NoticeBoard /> : <Navigate to="/" replace />}/>
         </Routes>
       </div>

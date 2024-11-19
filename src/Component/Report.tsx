@@ -26,48 +26,55 @@ const Report:React.FC = () => {
       }
       const detail: Detail[] = [
         {
-          ID: '#61667',
-          Name: "John Doe",
-          attendence: 80,
-          result: 90,
+          ID: '#12345',
+          Name: "Alice Johnson",
+          attendence: 85,
+          result: 92,
         },
         {
-            ID: '#61667',
-            Name: "John Doe",
-            attendence: 80,
-            result: 90,
-          },
-          {
-            ID: '#61667',
-            Name: "John Doe",
-            attendence: 80,
-            result: 90,
-          },
-          {
-            ID: '#61667',
-            Name: "John Doe",
-            attendence: 80,
-            result: 90,
-          },
-          {
-            ID: '#61667',
-            Name: "John Doe",
-            attendence: 80,
-            result: 90,
-          },
-          {
-            ID: '#61667',
-            Name: "John Doe",
-            attendence: 80,
-            result: 90,
-          },
-          {
-            ID: '#61667',
-            Name: "John Doe",
-            attendence: 80,
-            result: 90,
-          },
+          ID: '#23456',
+          Name: "Bob Smith",
+          attendence: 78,
+          result: 88,
+        },
+        {
+          ID: '#34567',
+          Name: "Charlie Davis",
+          attendence: 90,
+          result: 95,
+        },
+        {
+          ID: '#45678',
+          Name: "Diana Evans",
+          attendence: 70,
+          result: 80,
+        },
+        {
+          ID: '#56789',
+          Name: "Ethan Garcia",
+          attendence: 65,
+          result: 75,
+        },
+        {
+          ID: '#67890',
+          Name: "Fiona Harris",
+          attendence: 95,
+          result: 98,
+        },
+        {
+          ID: '#78901',
+          Name: "George Lee",
+          attendence: 82,
+          result: 89,
+        },
+        {
+          ID: '#89012',
+          Name: "Hannah Martinez",
+          attendence: 88,
+          result: 91,
+        },
       ];
+      
   return (
     <div className="w-[100%]  bg-[#F6F5FA] font-montserrat relative sm:left-0 lg:left-[20%]  top-14 p-2 ">
         <p className="text-[#4D515A]  lg:text-[14px] sm:text-[10px] leading-3 py-2">
@@ -133,7 +140,7 @@ const Report:React.FC = () => {
             <TableCell>{item.Name}</TableCell>
             <TableCell>{item.attendence}%</TableCell>
             <TableCell>{item.result}%</TableCell>
-            <TableCell><Link to='/' className="text-blue-600">View Report</Link></TableCell>
+            <TableCell><Link     to={`/studentreport/${item.Name}`} className="text-blue-600">View Report</Link></TableCell>
           </TableRow>
         ))}
       </TableBody>
