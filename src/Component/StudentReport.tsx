@@ -12,7 +12,7 @@ import {
     TableRow,
   } from "../components/ui/table";
   import { PiCaretUpDownFill } from "react-icons/pi";
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { FaPrint } from "react-icons/fa6";
