@@ -12,6 +12,10 @@ import Timetable from './Component/Timetable';
 import NoticeBoard from './Component/NoticeBoard';
 import Report from './Component/Report';
 import StudentReport from './Component/StudentReport';
+import Diary from './Component/Diary';
+import Showdiary from './Component/Showdiary';
+import ForgotPassword from './Component/ForgotPassword';
+
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,7 +44,7 @@ const App: React.FC = () => {
               isLoggedIn ? (
                 <Dashboard  />
               ) : (
-                <Navigate to="/" replace /> // Redirect to login if not logged in
+                <Navigate to="/" replace />
               )
             } 
           />
@@ -65,7 +69,12 @@ const App: React.FC = () => {
 />
 
           <Route path='/noticeboard'  element={isLoggedIn ? <NoticeBoard /> : <Navigate to="/" replace />}/>
+          <Route path='/diary'  element={isLoggedIn ? <Diary/> : <Navigate to="/" replace />}/>
+          <Route path='/showdiary'  element={isLoggedIn ? <Showdiary/> : <Navigate to="/" replace />}/>
+          <Route path='/forgotpassword'  element={ <ForgotPassword/>}/>
+        
         </Routes>
+       
       </div>
     </Router>
   );

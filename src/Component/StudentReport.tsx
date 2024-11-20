@@ -130,7 +130,7 @@ const StudentReport:React.FC = () => {
       </CardHeader>
 <CardContent className='w-[99%]  '>
       <Tabs defaultValue="General" className="w-[100%]">
-  <TabsList className='w-[100%] bg-white'>
+     <TabsList className='w-[100%] bg-white'>
   <div className='w-[100%]  border-b-[1px] px-3 border-[#E4E4E4] justify-center items-center gap-8 flex '>
     <TabsTrigger className={`${active==='General'? "py-3 text-[#1A55AF] border-b-2 border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('General')}} value="General"> General</TabsTrigger>
     <TabsTrigger  className={`${active==='Result'? "py-3 border-b-2 text-[#1A55AF] border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('Result')}}value="Result">Result</TabsTrigger>
@@ -349,7 +349,7 @@ const StudentReport:React.FC = () => {
   </TableBody>
   </Table>
   </TabsContent>
-</Tabs>
+      </Tabs>
 
       </CardContent>
     </Card>

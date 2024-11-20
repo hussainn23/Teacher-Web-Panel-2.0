@@ -130,10 +130,10 @@ export const Datesheet: React.FC = () => {
               <SelectValue placeholder="--" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="Class 10A">A</SelectItem>
-              <SelectItem value="Class 10B">B</SelectItem>
-              <SelectItem value="Class 9A">C</SelectItem>
-              <SelectItem value="Class 9B">D</SelectItem>
+              <SelectItem value="A">A</SelectItem>
+              <SelectItem value="B">B</SelectItem>
+              <SelectItem value="C">C</SelectItem>
+              <SelectItem value="D">D</SelectItem>
             </SelectContent>
           </Select>
         </div>

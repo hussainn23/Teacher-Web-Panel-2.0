@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { CiCalendar } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
-
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { cn } from "@/lib/utils";
 
 import {
   Card,
   CardContent,
+   CardHeader,
 
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 
 const NoticeBoard: React.FC = () => {
@@ -56,35 +55,15 @@ const NoticeBoard: React.FC = () => {
               "w-[100%] h-[100%] overflow-y-scroll custom-scrollbar"
             )}
           >
-            <CardHeader>
-              <CardTitle className="gap-2 flex items-center justify-between">
-                <span
-                  className={`cursor-pointer py-3 ${
-                    active === "notices"
-                      ? "border-b-2 border-[#1A55A5] text-[#1A55A5]"
-                      : "text-gray-500"
-                  }`}
-                  onClick={() => {
-                    setactive('notices');
-                  }}
-                >
-                  Notices
-                </span>
-                <span
-             className={`cursor-pointer py-3 ${
-                active === "announcements"
-                  ? "border-b-2 border-[#1A55A5] text-[#1A55A5]"
-                  : "text-gray-500"
-              }`}
-                  onClick={() => {
-                    setactive('announcements');
-                  }}
-                >
-                  Annuncements
-                </span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="w-[100%]  px-2">
+         
+             
+              <Tabs defaultValue="notices" className="w-[100%]">
+              <TabsList className='w-[100%] bg-white'>
+              <TabsTrigger className={`${active==='notices'? "py-3 text-[#1A55AF] border-b-2 border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('notices')}} value="notices"> Notices</TabsTrigger>
+              <TabsTrigger  className={`${active==='announcements'? "py-3 border-b-2 text-[#1A55AF] border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('announcements')}}value="announcements">Announcements</TabsTrigger>
+                </TabsList>
+                <TabsContent value="notices">
+                <CardContent className="w-[100%]  px-2">
               <h1 className="font-bold text-[14px]">Notices List</h1>
               <p className="text-[12px]">
                 Click to check the list of all the notices below.
@@ -104,6 +83,13 @@ const NoticeBoard: React.FC = () => {
                 ))}
               </div>
             </CardContent>
+            </TabsContent>
+                <TabsContent value="announcements">
+                      <h1>here goes announcements</h1>
+                 </TabsContent>
+              </Tabs>
+           
+           
           </Card>
         </div>
         <div className="bg-white rounded-md lg:w-[54%] sm:w-[100%] h-[90vh] px-3">
