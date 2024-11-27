@@ -57,7 +57,7 @@ const Classes: React.FC = () => {
     },
   ];
   return (
-    <div className="w-[100%]    bg-[#F6F5FA] relative lg:text-[14px] sm:text-[10px] sm:left-0 lg:left-[20%]  top-14 p-2">
+    <div className="lg:w-[80%]   sm:w-[100%]  bg-[#F6F5FA] relative lg:text-[14px] sm:text-[10px] sm:left-0 lg:left-[20%]  top-14 p-2">
       <p className="text-[#4D515A] font-montserrat  leading-3 py-2">
         Dashboard {">"} Classes {">"}
       </p>

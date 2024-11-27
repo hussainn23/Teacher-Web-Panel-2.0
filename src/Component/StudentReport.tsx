@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa";
 import { Button } from '@/components/ui/button';
-import { Separator } from "@/components/ui/separator"
+
 import {
     Table,
     TableBody,
@@ -12,7 +12,7 @@ import {
     TableRow,
   } from "../components/ui/table";
   import { PiCaretUpDownFill } from "react-icons/pi";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Card, CardHeader} from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { FaPrint } from "react-icons/fa6";
@@ -21,7 +21,7 @@ import { YearPicker } from './YearPicker';
 const StudentReport:React.FC = () => {
     const navigate=useNavigate();
     const {name}=useParams()
-    const [active,setactive]=useState("")
+    const [active,setactive]=useState("General")
     interface Detail {
         count: number;
         subject: string;
@@ -91,14 +91,18 @@ const StudentReport:React.FC = () => {
         { id: 11, Month: "November" },
         { id: 12, Month: "December" },
       ];
+      const handlePrint = () => {
+        window.print();
+      
+      };
       
   return (
-    <div className="lg:w-[100%] sm:w-[117%] lg:px-3  sm:p-0 bg-[#F6F5FA] font-montserrat relative sm:left-0 lg:left-[20%]  top-14 p-2 ">StudentReport
-      <p className="text-[#4D515A]  lg:text-[14px] sm:text-[10px] leading-3 py-2">
+    <div className=" lg:w-[78vw] sm:w-[100vw] bg-[#F6F5FA] relative  sm:left-0 lg:left-[20%] top-14 p-2">
+      <p className="text-[#4D515A] lg:text-[14px] sm:text-[10px] leading-3 py-2">
       Dashboard {">"} Students {">"} Reports {">"} Student Reports 
     </p>
-    <div className="flex items-center justify-between gap-[12px]lg: px-[2] sm:p-0  lg:w-[75%] sm:w-[100%] ">
-        <div className='flex items-center gap-3'>
+    <div className="flex  items-center justify-between gap-[12px]lg: px-[2] sm:p-0  lg:w-[95%] sm:w-[100%] ">
+        <div className='flex  items-center gap-3'>
         <Button variant={'outline'} className='w-[44px]' onClick={()=>navigate(-1)}><FaArrowLeft /></Button>
     <h1 className="font-montserrat lg:text-[22px] sm:text-[14px] font-bold leading-6 ">
         {" "}
@@ -106,13 +110,15 @@ const StudentReport:React.FC = () => {
       </h1>
         </div>
           <div className='flex items-center gap-3'>      <Button variant={'outline'} className='text-[#1A55A5]' >Download Info</Button>
-          <Button variant={'outline'} className='text-[#1A55A5]' ><FaPrint /></Button></div>
+          
+          <Button variant={'outline'} className='text-[#1A55A5]'  onClick={handlePrint}><FaPrint />
+          </Button></div>
 
-</div>
-      <div className="flex items-center space-x-4 mt-7">
+         </div>
+      <div className=" items-center space-x-4 mt-7 bg-white rounded-lg">
      
      
-      <Card className="lg:w-[80%] sm:w-[110%]">
+      <Card className='w-[100%]  border-none bg-transparent rounded-none shadow-none' >
         <CardHeader>
             <h4 className='text-[14px] font-bold' >Student ID: 167895</h4>
             <p className='text-[14px]'>Joined: Mon, July 22,2022</p>
@@ -128,14 +134,15 @@ const StudentReport:React.FC = () => {
             </h2><br/>
          
       </CardHeader>
-<CardContent className='w-[99%]  '>
-      <Tabs defaultValue="General" className="w-[100%]">
-     <TabsList className='w-[100%] bg-white'>
-  <div className='w-[100%]  border-b-[1px] px-3 border-[#E4E4E4] justify-center items-center gap-8 flex '>
-    <TabsTrigger className={`${active==='General'? "py-3 text-[#1A55AF] border-b-2 border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('General')}} value="General"> General</TabsTrigger>
-    <TabsTrigger  className={`${active==='Result'? "py-3 border-b-2 text-[#1A55AF] border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('Result')}}value="Result">Result</TabsTrigger>
-    <TabsTrigger className={`${active==='Attendance'? "py-3 border-b-2 text-[#1A55AF] border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('Attendance')}} value="Attendance">Attendance</TabsTrigger>
- </div>
+      </Card>
+    
+      <Tabs defaultValue="General"  >
+     <TabsList className=' bg-transparent rounded-none   border-b-[1px] px-3 border-[#E4E4E4] justify-center items-center gap-8 flex flex-wrap '>
+
+    <TabsTrigger className={`${active==='General'? " text-[#1A55AF] border-b-2 border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('General')}} value="General"> General</TabsTrigger>
+    <TabsTrigger  className={`${active==='Result'? " border-b-2 text-[#1A55AF] border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('Result')}}value="Result">Result</TabsTrigger>
+    <TabsTrigger className={`${active==='Attendance'? " border-b-2 text-[#1A55AF] border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('Attendance')}} value="Attendance">Attendance</TabsTrigger>
+ 
   </TabsList>
   <TabsContent value="General">
      <div className='flex lg:flex-row sm:flex-col justify-between items-center w-[100%] '>
@@ -216,6 +223,7 @@ const StudentReport:React.FC = () => {
 </p>
 
     </div>
+  
   </TabsContent>
   <TabsContent value="Result">
   <Table className="bg-white mt-3 lg:text-[14px] sm:text-[10px]  sm:mt-11">
@@ -251,42 +259,41 @@ const StudentReport:React.FC = () => {
         <TableBody>
           {detail.map((item) => (
             <TableRow>
-              <TableCell className="font-medium py-4">{item.count}</TableCell>
-              <TableCell>{item.subject}</TableCell>
-              <TableCell>{item.total_marks}</TableCell>
-              <TableCell>{item.obtain_marks}</TableCell>
-              <TableCell>{item.perc}%</TableCell>
+              <TableCell className="font-medium py-4 min-w-[150px]">{item.count}</TableCell>
+              <TableCell className='min-w-[150px]'>{item.subject}</TableCell>
+              <TableCell className='min-w-[150px]'>{item.total_marks}</TableCell>
+              <TableCell className='min-w-[150px]'>{item.obtain_marks}</TableCell>
+              <TableCell className='min-w-[150px]'>{item.perc}%</TableCell>
               <TableCell  ><span className='text-[#059691] rounded-[5rem] bg-[#E7ECF1] p-2'>{item.status}</span></TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      
   </TabsContent>
   <TabsContent value="Attendance">
-    <div className='flex items-center justify-between mb-5 px-2 mt-5'>
-    <h1 className="font-montserrat lg:text-[22px] sm:text-[14px] font-bold leading-6 ">
+    <div className='flex lg:items-center  items-center  justify-between mb-5 lg:px-2 sm:px-0 mt-5  '>
+    <h1 className="font-montserrat lg:text-[22px] sm:text-[11px] font-bold leading-6 ">
    
         Attendence Summary
       </h1>
       <YearPicker/>
     </div>
-    <div className='w-[100%] font-[600] '>
-    
-      <Separator className="my-4" />
-      <div className="flex h-5 text-center lg:text-[14px] sm:text-[10px] items-center justify-evenly space-x-4 text-sm">
-        <div>Total Classes<p>50</p></div>
-        <Separator orientation="vertical" />
+    <div className="lg:grid grid-cols-5  sm:flex sm:items-center sm:justify-between lg:divide-x lg:divide-gray-300 text-center lg:text-[14px] sm:text-[10px] lg:items-center  gap-2 text-sm  ">
+        <div >Total Classes<p>50</p></div>
+       
         <div>Present<p className='text-[#059691]'>45</p></div>
-        <Separator orientation="vertical" />
+       
         <div>Absent<p className='text-[#E11D48]'>4</p></div>
     
-        <Separator orientation="vertical" />
+       
         <div>OnLeave<p className='text-[#FFA200]'>1</p></div>
-        <Separator orientation="vertical" />
+       
         <div>Percentage<p className='text-[#9747FF]'>95%</p></div>
-      </div>
-    </div>
-  <Table className=" table-auto lg:text-[14px] sm:text-[10px] mt-9">
+        <div/>
+  </div>
+
+  <Table className=" lg:text-[14px] sm:text-[10px] mt-9">
   <TableHeader>
     <TableRow className='bg-[#F8FAFC] '>
       <TableHead className="font-montserrat font-bold text-black text-left px-4 py-2 lg:w-[30px] sm:w-[40px]">
@@ -314,6 +321,7 @@ const StudentReport:React.FC = () => {
         {index +1}
       </span>
     ))}
+
      </TableCell>
   </TableRow> 
 
@@ -348,15 +356,19 @@ const StudentReport:React.FC = () => {
     ))}
   </TableBody>
   </Table>
+
   </TabsContent>
       </Tabs>
+     
+     
+     
 
-      </CardContent>
-    </Card>
-      
-    </div>
+       </div>
+   
     </div>
   )
 }
 
 export default StudentReport
+
+    

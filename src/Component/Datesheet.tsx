@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoMdArrowRoundDown } from "react-icons/io";
-import { MdPrint } from "react-icons/md";
+import { MdLocalPrintshop } from "react-icons/md";
 import { FaAsterisk } from "react-icons/fa";
 import {
   Select,
@@ -18,8 +18,8 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table"
-import Button from "../Buttons/Button";
 
+import { Button } from '../components/ui/button';
 export const Datesheet: React.FC = () => {
   const [Class, setclass] = useState<string>("");
   const [section, setsection] = useState<string>("");
@@ -74,24 +74,24 @@ export const Datesheet: React.FC = () => {
       Room:"101"
     },
   ]
+  const handlePrint = () => {
+    window.print();
+  };
   return (
-    <div className="w-[100%]  bg-[#F6F5FA] relative sm:left-0 lg:left-[20%] top-14 p-2 ">
+    <div className="lg:w-[80%]   sm:w-[100%] bg-[#F6F5FA] relative sm:left-0 lg:left-[20%] top-14 p-2 ">
       <p className="text-[#4D515A] font-montserrat text-[14px] leading-3 py-2">
         Dashboard {">"} Datesheet {">"}
       </p>
-      <div className="flex items-center justify-between px-[2]  lg:w-[80%] sm:w-[100%]">
+      <div className="flex items-center justify-between px-[2]  lg:w-[90%] sm:w-[100%]">
         <h1 className="font-montserrat lg:text-[22px] sm:text-[17px] font-bold leading-6 ">
           {" "}
           Date Sheet
         </h1>
 
         <div className="flex gap-3">
-          <Button text={"Print"} icon={<MdPrint />} color={"white"} />
-          <Button
-            text={"Download"}
-            icon={<IoMdArrowRoundDown />}
-            color={"white"}
-          />
+        <Button variant={'outline'} onClick={handlePrint}><MdLocalPrintshop />Print</Button>
+         
+               <Button variant={'outline'} ><IoMdArrowRoundDown />Download</Button>
         </div>
       </div>
       <div className="flex lg:flex-row sm:flex-col gap-4 bg-white w-[100%] p-2 rounded-[5px] mt-2">
@@ -138,7 +138,7 @@ export const Datesheet: React.FC = () => {
           </Select>
         </div>
       </div>
-      <Table className="bg-white lg:text-[14px] sm:text-[12px] w-[90vw] ">
+      <Table className="bg-white lg:text-[14px] sm:text-[12px] lg:w-[90vw] ">
   
   <TableHeader>
     <TableRow className="bg-[#FAF8FC]">

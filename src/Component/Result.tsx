@@ -134,12 +134,15 @@ const Result:React.FC = () => {
       
     
     let navigate=useNavigate()
+    const handlePrint = () => {
+      window.print();
+    };
   return (
-    <div className="w-[100%] bg-[#F6F5FA] font-montserrat relative sm:left-0 lg:left-[20%]  top-14 p-2 ">
+    <div className="lg:w-[80%]   sm:w-[100%] bg-[#F6F5FA] font-montserrat relative sm:left-0 lg:left-[20%]  top-14 p-2 ">
     <p className="text-[#4D515A]  lg:text-[14px] sm:text-[10px] leading-3 py-2">
       Dashboard {">"} Result {">"}
     </p>
-    <div className='flex justify-between lg:w-[80%] sm:w-[100%] lg:flex-row sm:flex-col gap-2 '>
+    <div className='flex justify-between w-[100%] lg:flex-row sm:flex-col gap-2 '>
     <div className="flex items-center gap-[12px] px-[2] ">
     <Button variant={'outline'} className='w-[44px]' onClick={() => navigate(-1)}><FaArrowLeft /></Button>
       <h1 className="font-montserrat lg:text-[22px] sm:text-[14px] font-bold leading-6 ">
@@ -150,7 +153,7 @@ const Result:React.FC = () => {
     
     </div>
     <div className='flex gap-3  ' >
-        <Button variant={'outline'}><MdLocalPrintshop />Print</Button>
+        <Button variant={'outline'} onClick={handlePrint}><MdLocalPrintshop />Print</Button>
       <Button variant={'outline'}><FaDownload />Result Sheet</Button>
       <Button variant={'outline'}><IoFilterOutline  /></Button>
       </div>
@@ -159,20 +162,20 @@ const Result:React.FC = () => {
 
    <div className="bg-white w-[100%] pt-[14px] mt-3">
     <div className='flex lg:flex-row sm:flex-col md:flex-row items-center w-[100%] py-[2px] px-[4px] gap-2 text-[12px] '>
-    <div className='flex gap-1   md:flex-col self-start sm:justify-between sm:items-center lg:items-start'>
+    <div className='flex gap-1 w-[100%]  md:flex-col self-start sm:justify-between sm:items-center lg:items-start'>
      <p>Enter  name:</p>
-        <Input  value={name} type='text' onChange={(e)=>{setname(e.target.value)}}/>
+        <Input  value={name} type='text' onChange={(e)=>{setname(e.target.value)}} className='w-[200px]'/>
       
      </div>
-     <div className='flex gap-1  md:flex-col self-start sm:justify-between sm:items-center lg:items-start'>
+     <div className='flex gap-1 w-[100%]  md:flex-col self-start sm:justify-between sm:items-center lg:items-start'>
      <p>Select Your Class:</p>
         <ClassPicker />
      </div>
-     <div className='flex gap-1   md:flex-col self-start sm:justify-between sm:items-center lg:items-start'>
+     <div className='flex gap-1  w-[100%] md:flex-col self-start sm:justify-between sm:items-center lg:items-start'>
      <p>Select Your Year:</p>
         <YearPicker />
      </div>
-     <div className='flex gap-1  md:flex-col self-start sm:justify-between sm:items-center lg:items-start'>
+     <div className='flex gap-1 w-[100%] md:flex-col self-start sm:justify-between sm:items-center lg:items-start'>
      <p>Select Exam Type:</p>
      <Select
           value={exam}
@@ -180,7 +183,7 @@ const Result:React.FC = () => {
             setexam(value);
           }}
         >
-          <SelectTrigger className="w-[280px]">
+          <SelectTrigger className="w-[200px]">
             <SelectValue placeholder="--" />
           </SelectTrigger>
           <SelectContent>
@@ -192,8 +195,8 @@ const Result:React.FC = () => {
      </div>
     
     </div>
-    <Table className=" table-auto lg:text-[14px] sm:text-[10px] w-[90vw]">
-  <TableHeader>
+    <Table className=" table-auto lg:text-[14px] mt-6 sm:text-[10px] w-[90vw]">
+  <TableHeader className="bg-[#F8FAFC]">
     <TableRow>
       <TableHead className="font-montserrat font-bold text-black text-left px-4 py-2 box-border  ">
         STUDENT NAME 
@@ -230,13 +233,13 @@ const Result:React.FC = () => {
   <TableBody>
     {students.map((item, index) => (
       <TableRow key={index}>
-        <TableCell className="font-medium py-4 px-4 lg:min-w-[180px]">{item.name}</TableCell>
-        <TableCell className="font-medium py-4 px-4 lg:min-w-[180px]">{item.class}</TableCell>
-        <TableCell className="font-medium py-4 px-4 lg:min-w-[180px]">{item.obtainedMarks}</TableCell>
-        <TableCell className="font-medium py-4 px-4 lg:min-w-[180px]">{item.totalMarks}</TableCell>
-        <TableCell className="font-medium py-4 px-4 lg:min-w-[180px]">{item.percentage}%</TableCell>
-        <TableCell className="font-medium py-4 px-4 lg:min-w-[180px]">{item.status}</TableCell>
-        <TableCell className="font-medium py-4 px-4 lg:min-w-[180px]"><BsThreeDotsVertical /></TableCell>
+        <TableCell className="font-medium py-4 px-4 min-w-[180px]">{item.name}</TableCell>
+        <TableCell className="font-medium py-4 px-4 min-w-[180px]">{item.class}</TableCell>
+        <TableCell className="font-medium py-4 px-4 min-w-[180px]">{item.obtainedMarks}</TableCell>
+        <TableCell className="font-medium py-4 px-4 min-w-[180px]">{item.totalMarks}</TableCell>
+        <TableCell className="font-medium py-4 px-4 min-w-[180px]">{item.percentage}%</TableCell>
+        <TableCell className="font-medium py-4 px-4 min-w-[180px]">{item.status}</TableCell>
+        <TableCell className="font-medium py-4 px-4 min-w-[180px]"><BsThreeDotsVertical /></TableCell>
       </TableRow>
     ))}
   </TableBody>

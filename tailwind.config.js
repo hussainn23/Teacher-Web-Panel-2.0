@@ -4,7 +4,7 @@ module.exports = {
 	content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
 	theme: {
 		screens: {
-			sm: '340px',
+			sm: '240px',
 			// => @media (min-width: 640px) { ... }
 
 			md: '768px',
@@ -75,6 +75,6 @@ module.exports = {
 	},
 
 	plugins: [require("tailwindcss-animate"),
-		require('tailwind-scrollbar'),
+		
 	],
 }

@@ -2,18 +2,15 @@ import React, { useState } from "react";
 import { CiCalendar } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { cn } from "@/lib/utils";
-
-import {
-  Card,
-  CardContent,
-
-
-} from "@/components/ui/card";
-
 const NoticeBoard: React.FC = () => {
-  const [active, setactive] = useState('');
+  const [active, setactive] = useState('notices');
   const notifications = [
+    {
+      title: "New Semester Start Date",
+      date: "2 Sep, 2024",
+      content:
+        "The new semester will start from September 1st the new semester will start from Septembe....",
+    },
     {
       title: "New Semester Start Date",
       date: "2 Sep, 2024",
@@ -40,7 +37,8 @@ const NoticeBoard: React.FC = () => {
     },
   ];
   return (
-    <div className="w-[100%]  bg-[#F6F5FA] font-montserrat relative sm:left-0 lg:left-[20%]  top-14 p-2 ">
+    <>
+     <div className="lg:w-[78vw] sm:w-[100vw] bg-[#F6F5FA] font-montserrat relative sm:left-0 lg:left-[20%]  top-14 p-2 ">
       <p className="text-[#4D515A]  lg:text-[14px] sm:text-[10px] leading-3 py-2">
         Dashboard {">"} Noticeboard {">"}
       </p>
@@ -48,23 +46,16 @@ const NoticeBoard: React.FC = () => {
         {" "}
         Notice Board
       </h1>
-      <div className="w-[100%]  flex items-center gap-2 h-[100vh]  justify-arround sm:flex-col lg:flex-row">
-        <div className="bg-white rounded-md lg:w-[25%] h-[90vh] sm:w-[100%]  ">
-          <Card
-            className={cn(
-              "w-[100%] h-[100%] overflow-y-scroll custom-scrollbar"
-            )}
-          >
-         
-             
-              <Tabs defaultValue="notices" className="w-[100%]">
-              <TabsList className='w-[100%] bg-white'>
-              <TabsTrigger className={`${active==='notices'? "py-3 text-[#1A55AF] border-b-2 border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('notices')}} value="notices"> Notices</TabsTrigger>
-              <TabsTrigger  className={`${active==='announcements'? "py-3 border-b-2 text-[#1A55AF] border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('announcements')}}value="announcements">Announcements</TabsTrigger>
+      <div className="w-[100%] mt-3 flex  sm:gap-2   justify-arround sm:flex-col  lg:flex-row"> 
+         <div className="bg-white  rounded-md lg:w-[30%] overflow-y-scroll custom-scrollbar  lg:h-[90vh] sm:w-[100%] sm:h-[70vh] ">
+         <Tabs defaultValue="notices" >
+              <TabsList className=' bg-white w-full '>
+              <TabsTrigger className={`${active=='notices'? "py-3 text-[#1A55AF] border-b-2 border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('notices')}} value="notices"> Notices</TabsTrigger>
+              <TabsTrigger  className={`${active=='announcements'? "py-3 border-b-2 text-[#1A55AF] border-[#1A55AF]":"text-[#707070]"}`} onClick={()=>{setactive('announcements')}}value="announcements">Announcements</TabsTrigger>
                 </TabsList>
-                <TabsContent value="notices">
-                <CardContent className="w-[100%]  px-2">
-              <h1 className="font-bold text-[14px]">Notices List</h1>
+                <TabsContent value="notices" className="px-2">
+            
+               <h1 className="font-bold text-[14px]">Notices List</h1>
               <p className="text-[12px]">
                 Click to check the list of all the notices below.
               </p>
@@ -81,18 +72,22 @@ const NoticeBoard: React.FC = () => {
                     <p className="text-[#727983] ">{notification.content}</p>
                   </div>
                 ))}
-              </div>
-            </CardContent>
+              </div> 
+           
             </TabsContent>
                 <TabsContent value="announcements">
-                      <h1>here goes announcements</h1>
+             
+                      <h1>no announcements</h1>
+                   
                  </TabsContent>
-              </Tabs>
+        </Tabs>
+
+
            
            
-          </Card>
+          
         </div>
-        <div className="bg-white rounded-md lg:w-[54%] sm:w-[100%] h-[90vh] px-3">
+        <div className="bg-white rounded-md lg:w-[75%]  sm:w-[95%] px-3">
           <h1 className="font-bold text-[18px] ">New Semester Start Date</h1>
           <p className="text-[14px] text-[#919191] flex items-center gap-5">
             <span className="flex items-center gap-1">
@@ -137,8 +132,12 @@ const NoticeBoard: React.FC = () => {
             non-characteristic words etc.
           </p>
         </div>
-      </div>
+       </div> 
+     
     </div>
+
+    </>
+   
   );
 };
 

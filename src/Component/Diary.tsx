@@ -75,7 +75,7 @@ const Diary: React.FC = () => {
     ];
 
     return (
-        <div className="w-[100%]  bg-[#F6F5FA] font-montserrat relative sm:left-0 lg:left-[20%]  top-14 p-2 ">
+        <div className="lg:w-[78vw] sm:w-[100vw] bg-[#F6F5FA] font-montserrat relative sm:left-0 lg:left-[20%]  top-14 p-2 ">
             <p className="text-[#4D515A]  lg:text-[14px] sm:text-[10px] leading-3 py-2">
                 Dashboard {">"} Diary {">"}
             </p>
@@ -136,15 +136,15 @@ const Diary: React.FC = () => {
             <Table className="bg-white mt-3 lg:text-[14px] sm:text-[10px]  sm:mt-11">
                 <TableHeader>
                     <TableRow className="bg-[#F8FAFC]">
-                        <TableHead className="font-montserrat font-bold text-black w-[20%]  ">
+                        <TableHead className="font-montserrat font-bold text-black ">
                             <p className="flex items-center">CLASS
                                 <PiCaretUpDownFill /></p>
                         </TableHead>
-                        <TableHead className="font-montserrat font-bold text-black w-[20%]   ">
+                        <TableHead className="font-montserrat font-bold text-black  ">
                             <p className="flex items-center">SECTION
                                 <PiCaretUpDownFill /></p>
                         </TableHead>
-                        <TableHead className="font-montserrat font-bold text-black  w-[20%]  ">
+                        <TableHead className="font-montserrat font-bold text-black  ">
                             <p className="flex items-center">SUBJECT
                                 <PiCaretUpDownFill /></p>
                         </TableHead>
@@ -166,7 +166,7 @@ const Diary: React.FC = () => {
                                 <Dialog >
                                     <DialogTrigger asChild>
                                         <Button variant={"left"}><FaArrowRightLong size={24} />
-
+                                                 
                                         </Button>
                                     </DialogTrigger>
                                     <DialogContent className="lg:max-w-[625px] sm:w-[90vw]">
