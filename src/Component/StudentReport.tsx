@@ -146,7 +146,7 @@ const StudentReport:React.FC = () => {
   </TabsList>
   <TabsContent value="General">
      <div className='flex lg:flex-row sm:flex-col justify-between items-center w-[100%] '>
-     <div className="lg:w-[45%] sm:w-[100%] text-[14px]">
+     <div className="lg:w-[45%] sm:w-[100%] text-[14px] px-3 box-border">
   <h1 className="font-bold text-[20px]">Contact Details</h1>
   <p className="text-[#B0B0B0] flex justify-between">
     Home Address: <span className="text-black">Lviv, Zelena St 96</span>
@@ -177,7 +177,7 @@ const StudentReport:React.FC = () => {
   </p>
 </div>
 
-<div className="lg:w-[45%] sm:w-[100%] text-[14px]">
+<div className="lg:w-[45%] sm:w-[100%] text-[14px] px-4 box-border">
   <h1 className="font-bold text-[20px]">Enrollment Information</h1>
   <p className="text-[#B0B0B0] flex justify-between">
     Enrollment Grade Level: <span className="text-black">Grade 10</span>
@@ -342,7 +342,7 @@ const StudentReport:React.FC = () => {
               <span
                 key={index} 
                 style={{ backgroundColor: bgColor ,color:Color}} 
-                className={`font-montserrat text-black rounded-[50%] text-[9px]  p-1 inline-block`}
+                className={`font-montserrat text-black rounded-[50%] text-[9px]  px-2 py-[0.17rem] inline-block`}
               >
                 {letter}
               </span>

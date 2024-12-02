@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./Component/Sidebar";
 import Navbar from "./Component/Navbar";
 import Dashboard from "./Component/Dashboard";
@@ -26,6 +26,18 @@ import Protectedroute from "./Component/Protectedroute";
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [Username, setuserName] = useState<string>("");
+
+  useEffect(() => {
+    const accessToken=localStorage.getItem("accessToken");
+    const user=localStorage.getItem("userinfo");
+    if(accessToken&&user){
+         setIsLoggedIn(true);
+         setuserName(JSON.parse(user).username)
+    }
+  
+  
+  }, [])
+  
   return (
     <Router>
       <div>

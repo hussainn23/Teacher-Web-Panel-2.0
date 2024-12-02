@@ -14,11 +14,21 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../components/ui/dialog"
+import { useNavigate } from "react-router-dom";
+
 interface NavbarProps{
   Username:string
 }
 const Navbar:React.FC <NavbarProps>= ({Username}) => {
+ 
   const [value,setvalue]=useState<string>('')
+  const navigate = useNavigate();
+  const handlelogout=()=>{
+      localStorage.removeItem('acessToken')
+      localStorage.removeItem('userinfo')
+    
+      navigate('/', { replace: true });
+  }
   return (
     <div className="fixed top-0 bg-white z-10 flex w-[80%] px-[24px] py-[6px] left-[20%] items-center justify-between  ">
       <p className="text-[#727983] font-medium font-montserrat text-[12px] sm:hidden lg:block">
@@ -96,8 +106,8 @@ const Navbar:React.FC <NavbarProps>= ({Username}) => {
         </DialogHeader>
        
         <DialogFooter className="border-t-[1px] py-2">
-          <Button className="w-[50%]" type="submit" variant={'outline'}>Login</Button>
-          <Button className="w-[50%]"type="submit" variant={'outline'}><IoExitOutline size={24} className="text-red-600"/>Logout</Button>
+          <Button className="w-[50%]" type="submit" variant={'outline'} >Login</Button>
+          <Button className="w-[50%]"type="submit" variant={'outline'} onClick={handlelogout}><IoExitOutline size={24} className="text-red-600" />Logout</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

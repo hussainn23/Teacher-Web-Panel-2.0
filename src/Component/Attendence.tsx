@@ -29,18 +29,18 @@ const Attendence: React.FC = () => {
   }
 
   const students: Student[] = [
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
 
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
 
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
-    { id: 1, name: "Ahmad Azam", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
+    { id: 1, name: "John Doe", registration: "#16668" },
   ];
 
   let navigate = useNavigate();
@@ -160,7 +160,7 @@ const Attendence: React.FC = () => {
               <span
                 key={index} 
                 style={{ backgroundColor: bgColor ,color:Color}} 
-                className={`font-montserrat text-black rounded-[50%] text-[12px]  px-2 py-2 inline-block`}
+                className={`font-montserrat text-black rounded-[50%] text-[12px]  px-2 py-[0.17rem]  inline-block`}
               >
                 {letter}
               </span>

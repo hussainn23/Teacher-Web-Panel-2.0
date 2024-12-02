@@ -91,11 +91,11 @@ const NoticeBoard: React.FC = () => {
           <h1 className="font-bold text-[18px] ">New Semester Start Date</h1>
           <p className="text-[14px] text-[#919191] flex items-center gap-5">
             <span className="flex items-center gap-1">
-              2,Sep 11:00-12:00 <CiCalendar size={20} />
+            <CiCalendar size={17} className="font-bold" /> 2,Sep 11:00-12:00 
             </span>
 
             <span className="flex items-center gap-1">
-              <CiUser size={20} />
+              <CiUser size={15} className="font-extrabold" />
               Sabir Hassan
             </span>
           </p>{" "}
