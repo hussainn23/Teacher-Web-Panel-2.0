@@ -18,11 +18,11 @@ import axios from "axios";
 import { PiCaretUpDownFill } from "react-icons/pi";
 
 const Classes: React.FC = () => {
-  const [Class, setClass] = useState<string>(""); 
+  const [selectedClass, setselectedClass] = useState<string>(""); 
   const [section, setSection] = useState<
     Array<{
       id: number;
-      class_id: number;
+      class_id: string;
       medium: string;
       teacher_id: number;
       section_name: string;
@@ -31,12 +31,12 @@ const Classes: React.FC = () => {
   >([]);
 
   const [Classdata, setClassdata] = useState<
-    Array<{ id: number; name: string }>
+    Array<{ id: string; name: string }>
   >([]); 
 
   interface Detail {
     SR: number;
-    class: number;
+    class: string;
     section: string;
     // total_student: number; 
   }
@@ -55,7 +55,7 @@ const Classes: React.FC = () => {
           },
         }
       );
-      const classList = response.data.data.map((classItem: { id: number; name: string }) => ({
+      const classList = response.data.data.map((classItem: { id:string; name: string }) => ({
         id: classItem.id,
         name: classItem.name,
       }));
@@ -107,7 +107,9 @@ const Classes: React.FC = () => {
     fetchClass();
     fetchSection();
   }, []);
-
+  const filterList=details.filter((detail)=>detail.class===selectedClass)
+  console.log('filter list',filterList)
+  console.log('selected class',selectedClass)
   return (
     <div className="lg:w-[80%] sm:w-[100%] bg-[#F6F5FA] relative lg:text-[14px] sm:text-[10px] sm:left-0 lg:left-[20%] top-14 p-2">
       <p className="text-[#4D515A] font-montserrat leading-3 py-2">
@@ -115,13 +117,13 @@ const Classes: React.FC = () => {
       </p>
       <div className="flex items-center gap-[12px] px-[2]">
         <h1 className="font-montserrat text-[22px] font-bold leading-6 ">Classes</h1>
-        <Select value={Class} onValueChange={(value) => setClass(value)}>
+        <Select value={selectedClass} onValueChange={(value) => setselectedClass(value)}>
           <SelectTrigger className="w-[280px]">
             <SelectValue placeholder="--" />
           </SelectTrigger>
           <SelectContent>
             {Classdata.map((classItem) => (
-              <SelectItem key={classItem.id} value={classItem.name}>
+              <SelectItem key={classItem.id} value={classItem.id}>
                 {classItem.id}
               </SelectItem>
             ))}
@@ -159,7 +161,7 @@ const Classes: React.FC = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {details.map((item, index) => (
+          {(filterList.length>0?filterList:details).map((item, index) => (
             <TableRow key={index}>
               <TableCell className="font-medium py-4">{item.SR}</TableCell>
               <TableCell>{item.class}</TableCell>

@@ -22,6 +22,7 @@ import Showdiary from "./Component/Showdiary";
 import ForgotPassword from "./Component/ForgotPassword";
 import { ResetPassword } from "./Component/ResetPassword";
 import Protectedroute from "./Component/Protectedroute";
+import StudentData from "./Component/StudentData";
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -147,6 +148,14 @@ const App: React.FC = () => {
             element={
               <Protectedroute isLoggedIn={isLoggedIn}>
                 <Showdiary />
+              </Protectedroute>
+            }
+          />
+            <Route
+            path="/student"
+            element={
+              <Protectedroute isLoggedIn={isLoggedIn}>
+                <StudentData />
               </Protectedroute>
             }
           />

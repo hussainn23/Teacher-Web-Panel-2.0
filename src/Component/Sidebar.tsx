@@ -44,7 +44,8 @@ const Sidebar: React.FC = () => {
             <summary className='flex items-center justify-between gap-2.5 rounded-[9px] font-montserrat p-[14px] text-[14px] font-medium duration-300 ease-in-out bg-white hover:bg-[#124FA0] text-black hover:text-white' onClick={() => {
            setIsStudentsOpen(!isStudentsOpen)
             }}>
-              <li className='flex items-center gap-2.5'><PiUsersThree size={18} />Students</li>  {isStudentsOpen ? < IoIosArrowDown size={18} /> : <IoIosArrowUp size={18} />}
+              <Link to='student'>   <li className='flex items-center gap-2.5' onClick={() => { setopen(!open) }}><PiUsersThree size={18} />Students</li></Link>  {isStudentsOpen ? < IoIosArrowDown size={18} /> : <IoIosArrowUp size={18} />}
+            
             </summary>
             <Link to='/attendence' onClick={() => { setopen(!open) }} > <li className="mx-[3rem] my-[1rem] text-[14px] p-[5px] rounded-[7px] font-medium bg-white hover:bg-[#F3F6FA]">
               Attendance
